@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build: dev",
+      "type": "npm",
+      "script": "build:dev",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "build: prod",
+      "type": "npm",
+      "script": "build:prod"
+    }
+  ]
+}
