@@ -1,11 +1,34 @@
 # electron-webpack-boilerplate 
-Boilerplate application for Electron with webpack.
-Inspired from [electron-boilerplate](https://github.com/szwacz/electron-boilerplate) and [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+Boilerplate application for Electron with webpack. The boilerplate also doesn't impose on you any frontend technologies or frameworks.
 
-# Code Editor
-Use [VS Code](https://code.visualstudio.com/) for editing, building and testing the app.
-For better developer experience, please install the following extensions - 
-+ [Debugger for Chrome (must have)](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+Inspired from [electron-boilerplate](https://github.com/szwacz/electron-boilerplate) and [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate).
+
+Refer [Electron docs](https://electronjs.org/docs) for more information.
+
+# Quick start
+Make sure you have [Node.js](https://nodejs.org) installed, then type the following commands in the terminal window.
+```
+git clone https://github.com/DeekshithShetty/electron-webpack-boilerplate.git
+cd electron-webpack-boilerplate
+npm install
+npm start
+```
+
+# Project Structure
+
+`app` - contains code for the app written in ES6 syntax. Files within this folder get transpiled.
+
+`internals` - contains code for configuring webpack (build process), config files for different environment and resources required for building the app.
+
+`e2e` - contains e2e test files.
+
+`build` - contains bundled/minified code once the build process is completed, which is used to run the application.
+
+`dist` - contains the distributable file generated once the packaging process is completed.
+
+# Setting Up Your Editor
+Use [VS Code](https://code.visualstudio.com/) for editing, building and testing the app. Install [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension. Also for better developer experience, please install the following extensions. These allow you to see any warnings or errors directly within the editor.
+
 + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 + [Stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint)
 + [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
@@ -14,26 +37,62 @@ For better developer experience, please install the following extensions -
 + [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
 + [Rainbow Brackets](https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets)
 
+
 # Run and Debug
 ## Via VS Code (Recommended)
-Go to the Debug view, select the 'Electron: Development', which will connect VS Code to the both Main and Renderer process.
+Go to the Debug view, select the `Electron: All Development` (dev environment) or `Electron: All Production` (prod environment), which will connect VS Code to the both Main and Renderer process.
 
-+ Set breakpoints in [main.js](./app/main.js) (Main process) to debug. 
-+ Set breakpoints in Google Chrome DevTools for the renderer process code. Reload the page in Electron app window (Ctrl+R (Windows) / CMD+R (Mac) or Development -> Reload) to debug.
-+ If you want to debug the renderer process code in VS Code, comment the line `mainWindow.openDevTools()` in [main.js](./app/main.js). Set breakpoints.
+1. Set breakpoints in [main.js](./app/main.js) (Main process) to debug. 
+2. Set breakpoints in Google Chrome DevTools for the renderer process code. Reload the page in Electron app window (`Ctrl+R` (Windows) / `CMD+R` (Mac) or `Development -> Reload`) to debug. (Note: If you want to debug the renderer process code in VS Code, comment the line `mainWindow.openDevTools()` in [main.js](./app/main.js) and then set breakpoints for the renderer code in the editor)
+
+Refer [vs code recipes for electron](https://github.com/Microsoft/vscode-recipes/tree/master/Electron) for more information. 
+
 
 ## Via Terminal
-+ Set env in build npm script.
-+ Run `npm start` to start the app.
-
-Refer [Electron docs](https://electronjs.org/docs) for more information.
++ Run the following command to start the app in dev environment:
+  ```
+  npm start
+  ```
++ Run the following command to start the app in production environment:
+  ```
+  npm run start:prod
+  ```
 
 # Linting and Code formatting
-+ We use `stylelint` for CSS linting. You can trigger it using the `npm run lint:css`.
-+ We use `eslint` for JS linting. You can trigger it using the `npm run lint:eslint`.
-+ Use `npm run lint` for both CSS and JS linting.
-+ We use `prettier` for code formatting. Refer [here](https://github.com/prettier/prettier) for more info.
+We use [stylelint](https://stylelint.io/) for CSS linting, [eslint](http://eslint.org/) for JS linting and [prettier](https://prettier.io/) for code formatting. We've also set up a git hook to automatically run linting before your code is committed.
+```
+npm run lint
+```
 
-# TODO
-+ Add [docs](./docs)
-+ Add details about running unit and e2e tests.
++ ### JS linting
+  ```
+  npm run lint:eslint
+  ```
+
++ ### CSS linting
+  ```
+  npm run lint:css
+  ```
+
+
+# Testing
+For all tests, run the following command:
+  ```
+  npm test
+  ```
++ ### Unit
+  We use [electron-mocha](https://github.com/jprichardson/electron-mocha) test runner with the [Chai](http://chaijs.com/api/assert/) assertion library. You can put your spec files wherever you want within the `app` directory, just name them with the `.spec.js` extension. Run the following command:
+  ```
+  npm run unit
+  ```
++ ### e2e
+  We use [Mocha](https://mochajs.org/) and [Spectron](http://electron.atom.io/spectron/). This task will run all files in `e2e` directory with `.e2e.js` extension.Run the following command:
+  ```
+  npm run e2e
+  ```
+# Release
+To package your app into an installer use command:
+```
+npm run release
+```
+Once the packaging process finished, the `dist` folder will contain your distributable file. We use [electron-builder](https://github.com/electron-userland/electron-builder) to handle the packaging process.

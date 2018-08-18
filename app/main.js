@@ -48,7 +48,7 @@ app.on('ready', () => {
 
   if (env.name === ENV_DEVELOPMENT) {
     // uncomment the below line if you want the devtools to immediately open when the app is open
-    mainWindow.openDevTools();
+    // mainWindow.openDevTools();
   }
 });
 
