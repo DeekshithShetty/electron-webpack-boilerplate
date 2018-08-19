@@ -4,9 +4,9 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Electron: Main Dev",
+            "name": "Electron: Main",
             "protocol": "inspector",
-            "preLaunchTask": "build: dev",
+            "preLaunchTask": "build: dev", // modify this based on env. Refer tasks.json
             "program": "${workspaceRoot}/build/main.js",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "runtimeArgs": [
@@ -28,39 +28,15 @@
             "trace": true,
             "sourceMaps": true,
             "smartStep": true
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Electron: Main Prod",
-            "protocol": "inspector",
-            "preLaunchTask": "build: prod",
-            "program": "${workspaceRoot}/build/main.js",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-            "runtimeArgs": [
-                "--remote-debugging-port=9223",
-                "."
-            ],
-            "windows": {
-                "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
-            },
-            "sourceMaps": true
-        },
+        }
   ],
   "compounds": [
       {
-          "name": "Electron: All Development",
+          "name": "Electron: All",
           "configurations": [
-              "Electron: Main Dev",
+              "Electron: Main",
               "Electron: Renderer"
           ]
-      },
-      {
-        "name": "Electron: All Production",
-        "configurations": [
-            "Electron: Main Prod",
-            "Electron: Renderer"
-        ]
-    }
+      }
   ]
 }

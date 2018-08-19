@@ -2,13 +2,29 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build: dev",
+      "label": "build: dev:watch",
       "type": "npm",
-      "script": "build:dev",
+      "script": "build:dev:watch",
+      "isBackground": true,
       "group": {
         "kind": "build",
-        "isDefault": true
+        "isDefault": true,
+      },
+      "problemMatcher": {
+        "owner": "Webpack watch",
+        "source": "webpack",
+        "pattern": { "regexp": "__________" },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^webpack is watching the files",
+          "endsPattern": "(Compiled successfully|Failed to compile) .*"
+        }
       }
+    },
+    {
+      "label": "build: dev",
+      "type": "npm",
+      "script": "build:dev"
     },
     {
       "label": "build: prod",
