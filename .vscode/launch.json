@@ -6,7 +6,7 @@
             "request": "launch",
             "name": "Electron: Main",
             "protocol": "inspector",
-            "preLaunchTask": "build: dev", // modify this based on env. Refer tasks.json
+            "preLaunchTask": "build: dev:watch", // modify this based on env. Refer tasks.json
             "program": "${workspaceRoot}/build/main.js",
             "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "runtimeArgs": [

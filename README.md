@@ -40,7 +40,7 @@ Use [VS Code](https://code.visualstudio.com/) for editing, building and testing 
 
 # Run and Debug
 ## Via VS Code (Recommended)
-Go to the Debug view, select the `Electron: All Development` (dev environment) or `Electron: All Production` (prod environment), which will connect VS Code to the both Main and Renderer process.
+Go to the Debug view, select the `Electron: All`, which will connect VS Code to the both Main and Renderer process. You can configure the `preLaunchTask` in `launch.json` to point to appropriate build environment. By default it points to dev environment running in watch mode.
 
 1. Set breakpoints in [main.js](./app/main.js) (Main process) to debug. 
 2. Set breakpoints in Google Chrome DevTools for the renderer process code. Reload the page in Electron app window (`Ctrl+R` (Windows) / `CMD+R` (Mac) or `Development -> Reload`) to debug. (Note: If you want to debug the renderer process code in VS Code, comment the line `mainWindow.openDevTools()` in [main.js](./app/main.js) and then set breakpoints for the renderer code in the editor)
