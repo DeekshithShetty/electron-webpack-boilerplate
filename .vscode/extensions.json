@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "msjsdiag.debugger-for-chrome",
+    "dbaeumer.vscode-eslint",
+    "shinnn.stylelint",
+    "esbenp.prettier-vscode",
+    "eamodio.gitlens",
+    "christian-kohler.path-intellisense",
+    "naumovs.color-highlight",
+    "2gua.rainbow-brackets"
+  ]
+}

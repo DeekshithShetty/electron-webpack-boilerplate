@@ -25,8 +25,12 @@
     "publish": null
   },
   "lint-staged": {
-    "*.js": [ "npm run lint:eslint:staged" ],
-    "*.css": ["npm run lint:css:staged" ]
+    "*.js": [
+      "npm run lint:eslint:staged"
+    ],
+    "*.css": [
+      "npm run lint:css:staged"
+    ]
   },
   "pre-commit": "lint:staged",
   "scripts": {
@@ -48,8 +52,10 @@
     "prettify": "prettier --write",
     "prebuild:dev": "npm run build:clean",
     "build:dev": "webpack --display=minimal --config=internals/webpack/webpack.app.config.js --env=development",
+    "build:dev:watch": "npm run build:dev -- --watch",
     "prebuild:prod": "npm run build:clean",
     "build:prod": "webpack --display=minimal --config=internals/webpack/webpack.app.config.js --env=production",
+    "build:prod:watch": "npm run build:prod -- --watch",
     "build:clean": "rimraf ./build",
     "electron": "electron . --remote-debugging-port=9222 --enable-logging",
     "start:dev": "npm run build:dev && npm run electron",
