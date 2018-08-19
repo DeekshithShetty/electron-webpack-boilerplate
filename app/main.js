@@ -47,8 +47,9 @@ app.on('ready', () => {
   );
 
   if (env.name === ENV_DEVELOPMENT) {
-    // uncomment the below line if you want the devtools to immediately open when the app is open
-    // mainWindow.openDevTools({ mode: 'undocked' });
+    require('./helpers/renderer-reloader')(); // eslint-disable-line global-require
+    // comment the below line if you dont want the devtools to immediately open when the app is opened
+    mainWindow.openDevTools({ mode: 'undocked' });
   }
 });
 
