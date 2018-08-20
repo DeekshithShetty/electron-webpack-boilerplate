@@ -1,15 +1,17 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ENV_DEVELOPMENT, ENV_PRODUCTION } = require('../constants');
-
-const translateEnvToMode = env =>
-  env === ENV_DEVELOPMENT ? ENV_DEVELOPMENT : ENV_PRODUCTION;
 
 module.exports = env => ({
+  entry: {
+    main: './app/main.js',
+    home: './app/home-page/index.js',
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, '../../build'),
+  },
   target: 'electron-renderer',
-  mode: translateEnvToMode(env),
   node: {
     __dirname: false,
     __filename: false,
@@ -35,7 +37,6 @@ module.exports = env => ({
     ],
   },
   plugins: [
-    new FriendlyErrorsWebpackPlugin({ clearConsole: env === ENV_DEVELOPMENT }),
     new HtmlWebpackPlugin({
       filename: 'home.html',
       template: 'app/home-page/index.html',
