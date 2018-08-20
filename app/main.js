@@ -12,11 +12,11 @@ import env from 'env'; // eslint-disable-line import/no-unresolved
 import devMenuTemplate from './menu/dev-menu-template';
 import editMenuTemplate from './menu/edit-menu-template';
 import createWindow from './helpers/window';
-import { ENV_DEVELOPMENT, ENV_PRODUCTION } from './constants';
 
 const setApplicationMenu = () => {
   const menus = [editMenuTemplate];
-  if (env.name === ENV_DEVELOPMENT) {
+  // eslint-disable-next-line no-undef
+  if (ELECTRON_IS_DEV) {
     menus.push(devMenuTemplate);
   }
   Menu.setApplicationMenu(Menu.buildFromTemplate(menus));
@@ -25,7 +25,7 @@ const setApplicationMenu = () => {
 // Save userData in separate folders for each environment.
 // Thanks to this you can use production and development versions of the app
 // on same machine like those are two separate apps.
-if (env.name !== ENV_PRODUCTION) {
+if (env.name !== 'production') {
   const userDataPath = app.getPath('userData');
   app.setPath('userData', `${userDataPath} (${env.name})`);
 }
@@ -46,9 +46,10 @@ app.on('ready', () => {
     }),
   );
 
-  if (env.name === ENV_DEVELOPMENT) {
+  // enable renderer reloading and devTools when run locally
+  // eslint-disable-next-line no-undef
+  if (ELECTRON_IS_DEV) {
     require('./helpers/renderer-reloader')(); // eslint-disable-line global-require
-    // comment the below line if you dont want the devtools to immediately open when the app is opened
     mainWindow.openDevTools({ mode: 'undocked' });
   }
 });

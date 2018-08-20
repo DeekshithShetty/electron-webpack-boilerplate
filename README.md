@@ -33,6 +33,7 @@ Use [VS Code](https://code.visualstudio.com/) for editing, building and testing 
 + [Stylelint](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint)
 + [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 + [GitLens - Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
++ [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
 + [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 + [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
 + [Rainbow Brackets](https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets)
@@ -40,7 +41,7 @@ Use [VS Code](https://code.visualstudio.com/) for editing, building and testing 
 
 # Run and Debug
 ## Via VS Code (Recommended)
-Go to the Debug view, select the `Electron: All`, which will connect VS Code to the both Main and Renderer process. You can configure the `preLaunchTask` in `launch.json` to point to appropriate build environment. By default it points to dev environment running in watch mode.
+Go to the Debug view, select the `Electron: All`, which will connect VS Code to the both Main and Renderer process. You can configure the `preLaunchTask` in `launch.json` to point to appropriate build environment. By default it points to dev environment running in watch mode. You can specify the config environment using `--env` in the npm scripts.
 
 1. Set breakpoints in [main.js](./app/main.js) (Main process) to debug. 
 2. Set breakpoints in Google Chrome DevTools for the renderer process code. Reload the page in Electron app window (`Ctrl+R` (Windows) / `CMD+R` (Mac) or `Development -> Reload`) to debug. (Note: If you want to debug the renderer process code in VS Code, comment the line `mainWindow.openDevTools()` in [main.js](./app/main.js) and then set breakpoints for the renderer code in the editor)
@@ -57,7 +58,8 @@ Refer [vs code recipes for electron](https://github.com/Microsoft/vscode-recipes
   ```
   npm run start:prod
   ```
-
+ You can specify the config environment using `--env` in the npm scripts.
+ 
 # Linting and Code formatting
 We use [stylelint](https://stylelint.io/) for CSS linting, [eslint](http://eslint.org/) for JS linting and [prettier](https://prettier.io/) for code formatting. We've also set up a git hook to automatically run linting before your code is committed.
 ```

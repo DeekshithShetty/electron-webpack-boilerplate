@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -17,5 +18,10 @@ module.exports = env =>
         }),
       ],
     },
-    plugins: [new FriendlyErrorsWebpackPlugin({ clearConsole: false })],
+    plugins: [
+      new FriendlyErrorsWebpackPlugin({ clearConsole: false }),
+      new webpack.DefinePlugin({
+        ELECTRON_IS_DEV: false,
+      }),
+    ],
   });

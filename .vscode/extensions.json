@@ -5,6 +5,7 @@
     "shinnn.stylelint",
     "esbenp.prettier-vscode",
     "eamodio.gitlens",
+    "christian-kohler.npm-intellisense",
     "christian-kohler.path-intellisense",
     "naumovs.color-highlight",
     "2gua.rainbow-brackets"
