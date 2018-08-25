@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+  - 8
+
+install:
+  - npm install 
+
+script:
+  - npm run lint
+  - npm run unit
+  - npm run e2e
+  - npm run build:dev
+  - npm run build:prod
+
+cache:
+  directories:
+    - node_modules

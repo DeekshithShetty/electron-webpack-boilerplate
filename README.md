@@ -3,6 +3,8 @@ Boilerplate application for Electron with webpack. The boilerplate also doesn't 
 
 Inspired from [electron-boilerplate](https://github.com/szwacz/electron-boilerplate) and [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate).
 
+[![TravisCI](https://travis-ci.org/DeekshithShetty/electron-webpack-boilerplate.svg?branch=master)](https://travis-ci.org/DeekshithShetty/electron-webpack-boilerplate)
+
 Refer [Electron docs](https://electronjs.org/docs) for more information.
 
 # Quick start
