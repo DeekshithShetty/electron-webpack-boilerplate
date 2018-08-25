@@ -88,7 +88,7 @@ For all tests, run the following command:
   npm run unit
   ```
 + ### e2e
-  We use [Mocha](https://mochajs.org/) and [Spectron](http://electron.atom.io/spectron/). This task will run all files in `e2e` directory with `.e2e.js` extension.Run the following command:
+  We use [Mocha](https://mochajs.org/) and [Spectron](http://electron.atom.io/spectron/). This task will run all files in `e2e` directory with `.e2e.js` extension. Run the following command:
   ```
   npm run e2e
   ```

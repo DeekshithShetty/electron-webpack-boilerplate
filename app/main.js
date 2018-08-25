@@ -9,8 +9,8 @@ import { app, Menu } from 'electron';
 // Special module holding environment variables which you declared
 // in config/env_xxx.json file.
 import env from 'env'; // eslint-disable-line import/no-unresolved
-import devMenuTemplate from './menu/dev-menu-template';
-import editMenuTemplate from './menu/edit-menu-template';
+import devMenuTemplate from './helpers/menu/dev-menu-template';
+import editMenuTemplate from './helpers/menu/edit-menu-template';
 import createWindow from './helpers/window';
 
 const setApplicationMenu = () => {

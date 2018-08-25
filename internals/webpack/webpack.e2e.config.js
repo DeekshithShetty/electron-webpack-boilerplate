@@ -1,5 +1,7 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const jetpack = require('fs-jetpack');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const base = require('./webpack.base.config');
 
 // Test files are scattered through the whole project. Here we're searching
@@ -25,4 +27,11 @@ module.exports = env =>
       filename: 'e2e.js',
       path: tempDir.path(),
     },
+    mode: 'development',
+    plugins: [
+      new FriendlyErrorsWebpackPlugin({ clearConsole: true }),
+      new webpack.DefinePlugin({
+        ELECTRON_IS_DEV: false,
+      }),
+    ],
   });

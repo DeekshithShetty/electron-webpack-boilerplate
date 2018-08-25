@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+
 import electron from 'electron';
 import { Application } from 'spectron';
 

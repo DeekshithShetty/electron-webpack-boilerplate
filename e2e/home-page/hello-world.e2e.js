@@ -1,5 +1,7 @@
+/* eslint-disable func-names */
+
 import { expect } from 'chai';
-import testUtils from './utils';
+import testUtils from '../utils';
 
 describe('application launch', () => {
   beforeEach(testUtils.beforeEach);

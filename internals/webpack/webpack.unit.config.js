@@ -25,4 +25,5 @@ module.exports = env =>
       filename: 'specs.js',
       path: tempDir.path(),
     },
+    mode: 'development',
   });
