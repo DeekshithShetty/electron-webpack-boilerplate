@@ -1,11 +1,10 @@
 # electron-webpack-boilerplate 
-Boilerplate application for Electron with webpack. The boilerplate also doesn't impose on you any frontend technologies or frameworks.
+Boilerplate application for Electron with webpack. The boilerplate also doesn't impose on you any frontend technologies or frameworks. Inspired from [electron-boilerplate](https://github.com/szwacz/electron-boilerplate) and [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate). Refer [Electron docs](https://electronjs.org/docs) for more information.
 
-Inspired from [electron-boilerplate](https://github.com/szwacz/electron-boilerplate) and [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate).
+[![TravisCI](https://travis-ci.org/DeekshithShetty/electron-webpack-boilerplate.svg)](https://travis-ci.org/DeekshithShetty/electron-webpack-boilerplate)
+[![dependencies Status](https://david-dm.org/DeekshithShetty/electron-webpack-boilerplate/status.svg)](https://david-dm.org/DeekshithShetty/electron-webpack-boilerplate)
+[![devDependencies Status](https://david-dm.org/DeekshithShetty/electron-webpack-boilerplate/dev-status.svg)](https://david-dm.org/DeekshithShetty/electron-webpack-boilerplate?type=dev)
 
-[![TravisCI](https://travis-ci.org/DeekshithShetty/electron-webpack-boilerplate.svg?branch=master)](https://travis-ci.org/DeekshithShetty/electron-webpack-boilerplate)
-
-Refer [Electron docs](https://electronjs.org/docs) for more information.
 
 # Quick start
 Make sure you have [Node.js](https://nodejs.org) installed, then type the following commands in the terminal window.
