@@ -1,24 +1,18 @@
-html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: sans-serif;
+  height: 100%;
+  width: 100%;
   color: #525252;
+  text-align: center;
+}
+
+.heading {
+  margin: 0;
 }
 
 a {
   text-decoration: none;
   color: #cb3837;
-}
-
-.container {
-  text-align: center;
 }

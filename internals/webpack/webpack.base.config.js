@@ -1,7 +1,8 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 module.exports = env => ({
   entry: {
@@ -38,16 +39,21 @@ module.exports = env => ({
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'home.html',
-      template: 'app/home-page/index.html',
-      chunks: ['home'],
-    }),
     new CopyWebpackPlugin([
       { from: 'app/**/*.png', to: 'images', flatten: true },
       { from: 'app/**/*.jpg', to: 'images', flatten: true },
       { from: 'app/**/*.gif', to: 'images', flatten: true },
       { from: 'app/**/*.svg', to: 'images', flatten: true },
+      { from: 'app/global-styles.css' },
     ]),
+    new HtmlWebpackPlugin({
+      filename: 'home.html',
+      template: 'app/home-page/index.html',
+      chunks: ['home'],
+    }),
+    new HtmlWebpackIncludeAssetsPlugin({
+      assets: ['global-styles.css'],
+      append: false,
+    }),
   ],
 });
