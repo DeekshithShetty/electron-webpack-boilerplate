@@ -8,8 +8,8 @@ const base = require('./webpack.base.config');
 // for them and generating entry file for webpack.
 
 const e2eDir = jetpack.cwd('e2e');
-const tempDir = jetpack.cwd('temp');
-const entryFilePath = tempDir.path('e2e-entry.js');
+const buildDir = jetpack.cwd('build-test');
+const entryFilePath = buildDir.path('e2e-entry.js');
 
 const entryFileContent = e2eDir
   .find({ matching: '*.e2e.js' })
@@ -25,7 +25,7 @@ module.exports = env =>
     entry: entryFilePath,
     output: {
       filename: 'e2e.js',
-      path: tempDir.path(),
+      path: buildDir.path(),
     },
     mode: 'development',
     plugins: [

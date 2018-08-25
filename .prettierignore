@@ -1,6 +1,6 @@
 node_modules/
 build/
+build-test/
 dist/
-temp/
 package-lock.json
 package.json

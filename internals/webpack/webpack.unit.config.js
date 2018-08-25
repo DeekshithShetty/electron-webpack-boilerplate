@@ -6,8 +6,8 @@ const base = require('./webpack.base.config');
 // for them and generating entry file for webpack.
 
 const appDir = jetpack.cwd('app');
-const tempDir = jetpack.cwd('temp');
-const entryFilePath = tempDir.path('specs-entry.js');
+const buildDir = jetpack.cwd('build-test');
+const entryFilePath = buildDir.path('specs-entry.js');
 
 const entryFileContent = appDir
   .find({ matching: '*.spec.js' })
@@ -23,7 +23,7 @@ module.exports = env =>
     entry: entryFilePath,
     output: {
       filename: 'specs.js',
-      path: tempDir.path(),
+      path: buildDir.path(),
     },
     mode: 'development',
   });

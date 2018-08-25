@@ -4,5 +4,5 @@ Thumbs.db
 *.log
 
 /build
-/temp
+/build-test
 /dist
