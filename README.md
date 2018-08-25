@@ -83,7 +83,7 @@ For all tests, run the following command:
   npm test
   ```
 + ### Unit
-  We use [electron-mocha](https://github.com/jprichardson/electron-mocha) test runner with the [Chai](http://chaijs.com/api/assert/) assertion library. You can put your spec files wherever you want within the `app` directory, just name them with the `.spec.js` extension. Run the following command:
+  We use [Mocha](https://mochajs.org/) test runner with the [Chai](http://chaijs.com/api/assert/) assertion library. You can put your spec files wherever you want within the `app` directory, just name them with the `.spec.js` extension. Run the following command:
   ```
   npm run unit
   ```

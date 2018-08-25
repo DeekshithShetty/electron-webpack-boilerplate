@@ -1,4 +1,4 @@
-import './home.css';
+import './style.css';
 
 // Small helpers you might want to keep
 import '../helpers/context-menu';

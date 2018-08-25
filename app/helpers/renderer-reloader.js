@@ -1,8 +1,8 @@
 // code reffered from https://github.com/sindresorhus/electron-reloader/blob/master/index.js
 
-import path from 'path';
-import electron from 'electron';
-import chokidar from 'chokidar';
+const path = require('path');
+const electron = require('electron');
+const chokidar = require('chokidar');
 
 module.exports = () => {
   const cwd = path.dirname(__filename);
