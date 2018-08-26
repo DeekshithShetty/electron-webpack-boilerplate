@@ -6,9 +6,15 @@ node_js:
 install:
   - npm install 
 
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+
 script:
   - npm run lint
   - npm run unit
+  - npm run e2e
   - npm run build:dev
   - npm run build:prod
 
