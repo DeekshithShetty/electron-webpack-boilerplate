@@ -28,7 +28,33 @@
             "trace": true,
             "sourceMaps": true,
             "smartStep": true
-        }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "build: unit: all",
+            "name": "Unit Test: All",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/mocha",
+            "program": "${workspaceRoot}/build-test/specs.js",
+            "args": [
+                ".",
+                "--renderer",
+                 "--require", "source-map-support/register",
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "build: unit: single",
+            "name": "Unit Test: Single",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/mocha",
+            "program": "${workspaceRoot}/build-test/specs.js",
+            "args": [
+                ".",
+                "--renderer",
+                 "--require", "source-map-support/register",
+            ]
+        },
   ],
   "compounds": [
       {

@@ -30,6 +30,20 @@
       "label": "build: prod",
       "type": "npm",
       "script": "build:prod"
+    },
+    {
+      "label": "build: unit: all",
+      "type": "npm",
+      "script": "preunit",
+    },
+    {
+      "label": "build: unit: single",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run", "preunit",
+        "--", "--file=${file}"
+      ]
     }
   ]
 }

@@ -88,6 +88,9 @@ For all tests, run the following command:
   ```
   npm run unit
   ```
+  You can unit test a single file by passing the file path to `--file` arg in `preunit`.
+  To debug a unit test for a single file in VS Code, open the spec file that you want to debug and run `Unit Test: Single` in debug config.
+
 + ### e2e
   We use [Mocha](https://mochajs.org/) and [Spectron](http://electron.atom.io/spectron/). This task will run all files in `e2e` directory with `.e2e.js` extension. Run the following command:
   ```
