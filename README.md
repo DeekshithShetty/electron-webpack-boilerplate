@@ -96,6 +96,10 @@ For all tests, run the following command:
   ```
   npm run e2e
   ```
+  You can e2e test a single file by passing the file path to `--file` arg in `pree2e`.
+  To debug a e2e test for a single file in VS Code, open the e2e spec file that you want to debug and run `E2E Test: Single` in debug config.
+
+
 # Release
 To package your app into an installer use command:
 ```

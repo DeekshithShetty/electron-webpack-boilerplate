@@ -51,7 +51,30 @@
             "program": "${workspaceRoot}/build-test/specs.js",
             "args": [
                 ".",
-                "--renderer",
+                 "--require", "source-map-support/register",
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "build: e2e: all",
+            "name": "E2E Test: All",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/mocha",
+            "program": "${workspaceRoot}/build-test/e2e.js",
+            "args": [
+                ".",
+                 "--require", "source-map-support/register",
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "build: e2e: single",
+            "name": "E2E Test: Single",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/mocha",
+            "program": "${workspaceRoot}/build-test/e2e.js",
+            "args": [
+                ".",
                  "--require", "source-map-support/register",
             ]
         },

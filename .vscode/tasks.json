@@ -44,6 +44,20 @@
         "run", "preunit",
         "--", "--file=${file}"
       ]
-    }
+    },
+    {
+      "label": "build: e2e: all",
+      "type": "npm",
+      "script": "pree2e",
+    },
+    {
+      "label": "build: e2e: single",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run", "pree2e",
+        "--", "--file=${file}"
+      ]
+    },
   ]
 }
