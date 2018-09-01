@@ -1,0 +1,21 @@
+{
+  "include": [
+    "app/**/*.js"
+  ],
+  "exclude": [
+    "**/specs"
+  ],
+  "check-coverage": true,
+  "all": true,
+  "sourceMap": false,
+  "instrument": false,
+  "lines": 85,
+  "extension": [
+    ".js"
+  ],
+  "reporter": [
+    "html",
+    "lcov",
+    "cobertura"
+  ]
+}

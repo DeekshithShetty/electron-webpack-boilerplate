@@ -10,5 +10,16 @@
       }
     ]
   ],
-  "plugins": [["transform-object-rest-spread", { "useBuiltIns": true }]]
+  "plugins": [["transform-object-rest-spread", { "useBuiltIns": true }]],
+  "env": {
+    "test": {
+      "plugins": [
+        [
+          "istanbul", {
+            "useInlineSourceMaps": false
+          }
+        ]
+      ]
+    }
+  }
 }

@@ -4,8 +4,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', sans-serif;
-  box-sizing: border-box;
+  font: caption; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+  cursor: default;
 }
 
 * {

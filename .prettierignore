@@ -1,6 +1,7 @@
 node_modules/
 build/
 build-test/
+coverage/
 dist/
 package-lock.json
 package.json
