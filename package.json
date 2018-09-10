@@ -12,30 +12,6 @@
   "copyright": "© 2018 Saiyan Studio",
   "homepage": "https://github.com/DeekshithShetty/electron-webpack-boilerplate",
   "main": "build/main.js",
-  "build": {
-    "appId": "com.example.electron-webpack-boilerplate",
-    "files": [
-      "build/**/*",
-      "node_modules/**/*",
-      "package.json"
-    ],
-    "directories": {
-      "buildResources": "internals/resources"
-    },
-    "publish": null,
-    "asar": true,
-    "npmRebuild": true,
-    "artifactName": "${productName}_Setup_-${version}-${os}-${arch}.${ext}"
-  },
-  "lint-staged": {
-    "*.js": [
-      "npm run lint:eslint:staged"
-    ],
-    "*.css": [
-      "npm run lint:css:staged"
-    ]
-  },
-  "pre-commit": "lint:staged",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "lint": "npm run lint:eslint && npm run lint:css",
@@ -53,24 +29,38 @@
     "pree2e": "webpack --config=internals/webpack/webpack.prod.config.js --env=test --display=none && webpack --config=internals/webpack/webpack.e2e.config.js --env=test --display=none",
     "e2e": "xvfb-maybe mocha build-test/e2e.js --require source-map-support/register",
     "test": "npm run lint && npm run unit && npm run e2e",
+    "prebuild:local": "npm run build:clean",
+    "build:local": "webpack --display=minimal --config=internals/webpack/webpack.dev.config.js --env=development",
+    "build:local:watch": "npm run build:local -- --watch",
     "prebuild:dev": "npm run build:clean",
-    "build:dev": "webpack --display=minimal --config=internals/webpack/webpack.dev.config.js --env=development",
-    "build:dev:watch": "npm run build:dev -- --watch",
+    "build:dev": "webpack --display=minimal --config=internals/webpack/webpack.prod.config.js --env=development",
+    "prebuild:test": "npm run build:clean",
+    "build:test": "webpack --display=minimal --config=internals/webpack/webpack.prod.config.js --env=test",
     "prebuild:prod": "npm run build:clean",
     "build:prod": "webpack --display=minimal --config=internals/webpack/webpack.prod.config.js --env=production",
-    "build": "npm run build:prod",
     "build:clean": "rimraf ./build",
     "electron": "electron . --remote-debugging-port=9222 --enable-logging",
-    "start:dev": "npm run build:dev && npm run electron",
+    "start:local": "npm run build:local && npm run electron",
     "start:prod": "npm run build:prod && npm run electron",
-    "start": "concurrently --raw --kill-others \"npm run start:dev\" \"npm run build:dev:watch\"",
-    "prerelease:dev": "npm run release:clean",
-    "release:dev": "npm run unit && npm run build:dev && electron-builder",
-    "prerelease:prod": "npm run release:clean",
-    "release:prod": "npm run unit && npm run build:prod && electron-builder",
+    "start": "concurrently --raw --kill-others \"npm run start:local\" \"npm run build:local:watch\"",
+    "prerelease:dev": "rimraf ./dist/development",
+    "release:dev": "npm run build:dev && node internals/electron-builder --env=development",
+    "prerelease:test": "rimraf ./dist/test",
+    "release:test": "npm run build:test && node internals/electron-builder --env=test",
+    "prerelease:prod": "rimraf ./dist/production",
+    "release:prod": "npm run build:prod && node internals/electron-builder --env=production",
     "release": "npm run release:prod",
     "release:clean": "rimraf ./dist"
   },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:eslint:staged"
+    ],
+    "*.css": [
+      "npm run lint:css:staged"
+    ]
+  },
+  "pre-commit": "lint:staged",
   "dependencies": {
     "fs-jetpack": "^2.1.0"
   },
@@ -100,6 +90,7 @@
     "html-webpack-include-assets-plugin": "^1.0.4",
     "html-webpack-plugin": "^3.2.0",
     "lint-staged": "^7.2.2",
+    "minimist": "^1.2.0",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
     "pre-commit": "^1.2.2",

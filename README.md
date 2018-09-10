@@ -51,7 +51,7 @@ Refer [vs code recipes for electron](https://github.com/Microsoft/vscode-recipes
 
 
 ## Via Terminal
-+ Run the following command to start the app in dev environment:
++ Run the following command to start the app in local environment:
   ```
   npm start
   ```

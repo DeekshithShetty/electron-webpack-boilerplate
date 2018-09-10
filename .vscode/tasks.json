@@ -2,9 +2,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build: dev:watch",
+      "label": "build: local:watch",
       "type": "npm",
-      "script": "build:dev:watch",
+      "script": "build:local:watch",
       "isBackground": true,
       "group": {
         "kind": "build",
@@ -22,9 +22,9 @@
       }
     },
     {
-      "label": "build: dev",
+      "label": "build: local",
       "type": "npm",
-      "script": "build:dev"
+      "script": "build:local"
     },
     {
       "label": "build: prod",

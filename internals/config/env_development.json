@@ -1,4 +1,7 @@
 {
   "name": "development",
-  "description": "Add here any environment specific stuff you like."
+  "description": "Add here any environment specific stuff you like.",
+  "appId": "com.example.electron-webpack-boilerplate.dev",
+  "productName": "ElectronBoilerplate-DEV",
+  "publishUrl": "https://your-publish-url-here"
 }
