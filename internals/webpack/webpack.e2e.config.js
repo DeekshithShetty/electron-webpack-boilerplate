@@ -57,7 +57,7 @@ module.exports = (env, args) =>
     plugins: [
       new FriendlyErrorsWebpackPlugin({ clearConsole: true }),
       new webpack.DefinePlugin({
-        ELECTRON_IS_DEV: false,
+        ELECTRON_IS_LOCAL: false,
       }),
     ],
   });

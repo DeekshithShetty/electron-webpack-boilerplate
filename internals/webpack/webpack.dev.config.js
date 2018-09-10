@@ -9,7 +9,7 @@ module.exports = env =>
     plugins: [
       new FriendlyErrorsWebpackPlugin({ clearConsole: true }),
       new webpack.DefinePlugin({
-        ELECTRON_IS_DEV: true,
+        ELECTRON_IS_LOCAL: true,
       }),
     ],
   });

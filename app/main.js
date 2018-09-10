@@ -16,7 +16,7 @@ import createWindow from './helpers/window';
 const setApplicationMenu = () => {
   const menus = [editMenuTemplate];
   // eslint-disable-next-line no-undef
-  if (ELECTRON_IS_DEV) {
+  if (ELECTRON_IS_LOCAL) {
     menus.push(devMenuTemplate);
   }
   Menu.setApplicationMenu(Menu.buildFromTemplate(menus));
@@ -48,7 +48,7 @@ app.on('ready', () => {
 
   // enable renderer reloading and devTools when run locally
   // eslint-disable-next-line no-undef
-  if (ELECTRON_IS_DEV) {
+  if (ELECTRON_IS_LOCAL) {
     require('./helpers/renderer-reloader')(); // eslint-disable-line global-require
     mainWindow.openDevTools({ mode: 'undocked' });
   }
